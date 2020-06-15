@@ -113,6 +113,7 @@
   border: none;
   background-color: transparent;
   color: #2e2e2e;
+  outline: none;
 }
 
 .chat__write .chat__cont-btn-send {
