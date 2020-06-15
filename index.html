@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chatbot</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <section>
+        <div class="chat">
+            <div class="chat__info">
+                <span id='botName' class="chat__botname"></span>
+                <span id="isWriting" class="chat__iswriting"></span>
+            </div>
+
+            <div class="chat__view" id="chatView">
+                <div class="chat__sheet" id="chatSheet"></div>
+            </div>
+
+            <div class="chat__write">
+                <div class="chat__cont-input">
+                    <input type="text" id="inputWrite" class="chat__input" placeholder="Escribe tu mensaje...">
+                </div>
+
+                <div class="chat__cont-btn-send">
+                    <button id="btnSend" class="chat__btn-send"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="recomendaciones">
+            <h3>Recomendaciones para buena interacción</h3>
+            <p>* Tutear al robot</p>
+            <p>* No usar tildes</p>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
+

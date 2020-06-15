@@ -1,0 +1,20 @@
+############# JS #############
+
+elemento.scrollIntoView().
+
+https://developer.mozilla.org/es/docs/Web/API/Element/scrollIntoView
+
+Si el elemento está dentro de un padre con overflow.
+Esta función lleva el scroll del elemento al area visible. 
+
+
+Nota: Hay variaciones, como la que puse en este chatbot, que me muestra
+la parte de abajo del elemento y con animación y todo.
+
+********************************
+
+this === document.activeElement //Devuelve true o false
+
+Asi sabemos si un elemento está focuseado o no.
+
+Nota: 'this' es el elemento del DOM
