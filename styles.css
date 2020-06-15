@@ -24,7 +24,7 @@
 }
 
 .chat__view {
-  height: 400px;
+  height: 300px;
   overflow-y: scroll;
   width: 100%;
   background-color: none;
@@ -34,23 +34,16 @@
 
 .chat__view::-webkit-scrollbar {
   width: 8px;
-  background-color: #b35c5c;
-  border-radius: 8px;
+  background-color: #f4f6ff;
 }
 
 .chat__view::-webkit-scrollbar-thumb {
-  background-color: #000086;
-  border-radius: 4px;
-}
-
-.chat__view::-webkit-scrollbar-thumb:hover {
-  background-color: #181870;
-  -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  background-color: #f3c623;
+  border-radius: 2px;
 }
 
 .chat__view::-webkit-scrollbar-track:active {
-  background-color: rgba(0, 128, 0, 0.5);
+  background-color: #dddee2;
 }
 
 .chat__sheet {

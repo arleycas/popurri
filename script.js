@@ -45,33 +45,39 @@ document.getElementById('botName').innerHTML = nombreBot;
 /* ***************** Funciones ***************** */
 
 function processWord(text) {
-    /* 1. Poner el texto de usuario en el el view del chat */
-    showMessage(text, 'user');
-    /* 2. Pasar a minusculas el texto */
-    let minus = text.toLowerCase();
-    /* 3. Buscar palabra y reponder */
-    if(minus.includes('hola')) {
-        showMessage(JSONreplies.saludos, 'bot');
-    } else if(minus.includes('te llamas') || minus.includes('tu nombre') || minus.includes('quien eres')){
-        showMessage(JSONreplies.nombre, 'bot', nombreBot);
-    } else if(minus.includes('quien te cre') || minus.includes('quien te hiz') || minus.includes('tu crea')) {
-        showMessage(JSONreplies.creador, 'bot');
-    } else if(minus.includes('adios') || minus.includes('chao') || minus.includes('nos vemos')  || minus.includes('me voy')) {
-        showMessage(JSONreplies.despedidas, 'bot');
-    } else if(minus.includes('un chiste') || minus.includes('una broma')) {
-        showMessage(JSONreplies.chistes, 'bot');
-    } else if(minus.includes('jaj')) {
-        showMessage(JSONreplies.risas, 'bot');
-    } else if(minus.includes('que hace')) {
-        showMessage(JSONreplies.haciendo, 'bot');
-    } else if(minus.includes('bogota') || minus.includes('cali') || minus.includes('bucaramanga') || minus.includes('medellin')) {
-        showMessage(JSONreplies.ciudades, 'bot');
-    } else if(minus.includes('tont') || minus.includes('bob')){
-        showMessage(JSONreplies.insultos, 'bot');
-    } else if(minus.includes('que mas')) {
-        showMessage(JSONreplies.quemas, 'bot');
-    } else{
-        showMessage(JSONreplies.random, 'bot');
+
+    
+    if(text.trim() == '') {
+        return false;
+    } else {
+        /* 1. Poner el texto de usuario en el el view del chat */
+        showMessage(text, 'user');
+        /* 2. Pasar a minusculas el texto */
+        let minus = text.toLowerCase();
+        /* 3. Buscar palabra y reponder */
+        if(minus.includes('hola')) {
+            showMessage(JSONreplies.saludos, 'bot');
+        } else if(minus.includes('te llamas') || minus.includes('tu nombre') || minus.includes('quien eres')){
+            showMessage(JSONreplies.nombre, 'bot', nombreBot);
+        } else if(minus.includes('quien te cre') || minus.includes('quien te hiz') || minus.includes('tu crea')) {
+            showMessage(JSONreplies.creador, 'bot');
+        } else if(minus.includes('adios') || minus.includes('chao') || minus.includes('nos vemos')  || minus.includes('me voy')) {
+            showMessage(JSONreplies.despedidas, 'bot');
+        } else if(minus.includes('un chiste') || minus.includes('una broma')) {
+            showMessage(JSONreplies.chistes, 'bot');
+        } else if(minus.includes('jaj')) {
+            showMessage(JSONreplies.risas, 'bot');
+        } else if(minus.includes('que hace')) {
+            showMessage(JSONreplies.haciendo, 'bot');
+        } else if(minus.includes('bogota') || minus.includes('cali') || minus.includes('bucaramanga') || minus.includes('medellin')) {
+            showMessage(JSONreplies.ciudades, 'bot');
+        } else if(minus.includes('tont') || minus.includes('bob')){
+            showMessage(JSONreplies.insultos, 'bot');
+        } else if(minus.includes('que mas')) {
+            showMessage(JSONreplies.quemas, 'bot');
+        } else{
+            showMessage(JSONreplies.random, 'bot');
+        }
     }
 }
 
@@ -170,3 +176,4 @@ document.addEventListener('keypress', function(e){
 });
 
 window.addEventListener('load', resetInput());
+
