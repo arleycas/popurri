@@ -50,28 +50,28 @@ function processWord(text) {
     } else {
         /* 1. Poner el texto de usuario en el el view del chat */
         showMessage(text, 'user');
-        /* 2. Pasar a minusculas el texto */
-        let minus = text.toLowerCase();
+        /* 2. Se le quitan las tildes */
+        let rawWord = getWithoutTilde(text).toLowerCase();
         /* 3. Buscar palabra y reponder */
-        if(minus.includes('hola')) {
+        if(rawWord.includes('hola')) {
             showMessage(JSONreplies.saludos, 'bot');
-        } else if(minus.includes('te llamas') || minus.includes('tu nombre') || minus.includes('quien eres')){
+        } else if(rawWord.includes('te llamas') || rawWord.includes('tu nombre') || rawWord.includes('quien eres')){
             showMessage(JSONreplies.nombre, 'bot', nombreBot);
-        } else if(minus.includes('quien te cre') || minus.includes('quien te hiz') || minus.includes('tu crea')) {
+        } else if(rawWord.includes('quien te cre') || rawWord.includes('quien te hiz') || rawWord.includes('tu crea')) {
             showMessage(JSONreplies.creador, 'bot');
-        } else if(minus.includes('adios') || minus.includes('chao') || minus.includes('nos vemos')  || minus.includes('me voy')) {
+        } else if(rawWord.includes('adios') || rawWord.includes('chao') || rawWord.includes('nos vemos')  || rawWord.includes('me voy')) {
             showMessage(JSONreplies.despedidas, 'bot');
-        } else if(minus.includes('un chiste') || minus.includes('una broma')) {
+        } else if(rawWord.includes('un chiste') || rawWord.includes('una broma')) {
             showMessage(JSONreplies.chistes, 'bot');
-        } else if(minus.includes('jaj')) {
+        } else if(rawWord.includes('jaj')) {
             showMessage(JSONreplies.risas, 'bot');
-        } else if(minus.includes('que hace')) {
+        } else if(rawWord.includes('que hace')) {
             showMessage(JSONreplies.haciendo, 'bot');
-        } else if(minus.includes('bogota') || minus.includes('cali') || minus.includes('bucaramanga') || minus.includes('medellin')) {
+        } else if(rawWord.includes('bogota') || rawWord.includes('cali') || rawWord.includes('bucaramanga') || rawWord.includes('medellin')) {
             showMessage(JSONreplies.ciudades, 'bot');
-        } else if(minus.includes('tont') || minus.includes('bob')){
+        } else if(rawWord.includes('tont') || rawWord.includes('bob')){
             showMessage(JSONreplies.insultos, 'bot');
-        } else if(minus.includes('que mas')) {
+        } else if(rawWord.includes('que mas')) {
             showMessage(JSONreplies.quemas, 'bot');
         } else{
             showMessage(JSONreplies.random, 'bot');
@@ -156,6 +156,40 @@ function getRandomN(arrayLista) {
 function resetInput() {
     inputWrite.value = '';
     inputWrite.focus();
+}
+
+function getWithoutTilde(text) {
+    let word = '';
+
+    for (let i = 0; i < text.length; i++) {
+        switch (text[i]) {
+            case 'á':
+                word += 'a';
+                break;
+            
+            case 'é':
+                word += 'e';
+                break;  
+                
+            case 'í':
+                word += 'i';
+                break;
+
+            case 'ó':
+                word += 'o';
+                break;
+
+            case 'ú':
+                word += 'u';
+                break;
+                
+            default:
+                word += text[i];
+                break;
+        }
+    }
+
+    return word;
 }
 
 /* ***************** Listeners ***************** */
