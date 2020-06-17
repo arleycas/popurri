@@ -126,7 +126,7 @@
   height: 60%;
   border: none;
   background-color: transparent;
-  background-image: url(send.svg);
+  background-image: url(../img/send.svg);
   background-repeat: no-repeat;
   background-size: contain;
 }

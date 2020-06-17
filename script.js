@@ -45,8 +45,6 @@ document.getElementById('botName').innerHTML = nombreBot;
 /* ***************** Funciones ***************** */
 
 function processWord(text) {
-
-    
     if(text.trim() == '') {
         return false;
     } else {

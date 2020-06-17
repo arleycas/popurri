@@ -1,4 +1,4 @@
-.chat
+.chat {
     width: 340px;
     margin: 1em auto;
     padding: .5em;
@@ -6,19 +6,23 @@
     background-color: #262b33;
     box-shadow: 0 2px 4px #000000;
 
-    &__info
+    &__info {
         padding: 1em .5em;
         color: #33c0bb;
         
-        .chat__botname
+        .chat__botname {
             font-weight: bold;
             text-shadow: 2px 2px 8px #2e2e2e;
+        }
 
-        .chat__iswriting
+        .chat__iswriting {
             font-style: italic;
             color: #a3f7bf8a;
+        }
+    
+    }
 
-    &__view
+    &__view {
         height: 300px;
         overflow-y: scroll;
         width: 100%;
@@ -26,100 +30,99 @@
         background-color: #ccc5c5;
         margin: 0 auto;
 
-        
-
         //* Barra de scroll *//
-        &::-webkit-scrollbar
+        &::-webkit-scrollbar {
             width: 8px;
             background-color: #f4f6ff;
-
+        }
 
         //* Thumb del scroll (cuadrito) *//
-        &::-webkit-scrollbar-thumb
+        &::-webkit-scrollbar-thumb {
             background-color: #f3c623;
             border-radius: 2px;
+        }
 
-        //* Track creo que es la barra por donde viaja el thumb
-        pero no entiendo la diferencia con el solo scroll bar*//
-
-        &::-webkit-scrollbar-track:active
+        &::-webkit-scrollbar-track:active {
             background-color: #dddee2;
+        }
+    }
 
-    &__sheet
+    &__sheet {
         width: 100%;
         
-        .block
+        .block {
             padding: .5em;
             display: flex;
 
-            &--bot
+            &--bot {
                 justify-content: flex-start;
+            }
     
 
-            &--user
+            &--user {
                 justify-content: flex-end;
+            }
     
 
-            &__card
+            &__card {
                 padding: .5em;
                 border-radius: 8px;
                 color: #2e2e2e;
                 box-shadow: 0 2px 4px #00000042;
+            }
 
-    
-
-            &__card--bot
+            &__card--bot {
                 background-color: #a3f7bf8a;
+            }
     
-
-            &__card--user
+            &__card--user {
                 background-color: #33c0bb;
-    
-        .block--bot
+            }
+        }
+    }
 
-        .block--user
-
-    &__write
+    &__write {
         display: flex;
         padding-top: .5em;
         width: 100%;
         margin: 0 auto;
 
-        .chat__cont-input
+        .chat__cont-input {
             width: 90%;
             background-color: #959aa1;
             border-radius: 8px 0 0 8px;
     
-            .chat__input
+            .chat__input {
                 width: 100%;
                 padding: .5em;
                 border: none;
                 background-color: transparent;
                 color: #2e2e2e;
                 outline: none;
+            }
+        }
                 
-                
-    
-        .chat__cont-btn-send
+        .chat__cont-btn-send {
             width: 10%;
             background-color: #959aa1;
             border-radius: 0 8px 8px 0;
             display: flex;
             align-items: center;
     
-            .chat__btn-send
+            .chat__btn-send {
                 width: 90%;
                 height: 60%;
                 border: none;
                 background-color: transparent;
-                
-                background-image: url(send.svg);
+                background-image: url(../img/send.svg);
                 background-repeat: no-repeat;
                 background-size: contain;
-
-
-                &:hover
+            
+                &:hover {
                     cursor: pointer;
-        
-    
+                }
+            }
+        }
+    }
+}
 
