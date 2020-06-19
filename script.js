@@ -3,7 +3,7 @@ let JSONreplies = {
     'bots': 
         listaBots = ['Ulises', 'Nana', 'Gualter Guait', 'Estefi', 'Ciri', 'Kortano', 'Champi Vaca', 'Brayatan Esneider'],
     'haciendo': 
-        listaHaciendo = ['Hablando con tigo', '¿Que no es obvio?', 'Perdiendo mi tiempo', 'Lo que tu no'],
+        listaHaciendo = ['Hablar con tigo', '¿Que no es obvio?', 'Perder mi tiempo'],
     'saludos': 
         listaSaludos = ['Hola ¿Como estás?', '¿Que hay de nuevo?', '¿Todo bien? ¿Todo correcto? y yo que me alegro','¿Que tal?'],
     'nombre':
@@ -30,6 +30,26 @@ let JSONreplies = {
         listaQuemas = ['No, yo no quemo', 'Vientos y mareas', 'Nada más', 'Aquí, lidiando con un proyecto en Angular T_T, maldito carrito']
     }
 
+/* Estas son las opciones de las posibles palabras que puede enviar el usuario */
+let JSONuser = {
+    'chistes':
+        listaChistesU = ['un chiste', 'una broma'],
+    'ciudades':
+        listaCiudadesU = ['bogota', 'cali', 'medellin', 'medallo', 'pasto', 'bucaramanga', 'cartagena', 'cucuta'],
+    'creador':
+        listaCreadorU = ['quien te creo', 'quien te hizo', 'tu creador'],
+    'despedidas':
+        listaDespedidaU = ['adios', 'chao', 'nos vemos', 'me voy'],
+    'insultos':
+        listaInsultosU = ['tont', 'bob', 'idiot', 'imbecil', 'gonorre', 'pirob', 'hp', 'marico'],
+    'nombre': 
+        listaNombresU = ['te llamas', 'tu nombre', 'quien eres'],
+    'saludos':
+        listaSaludosU = ['hola', 'que mas'],
+    'haciendo':
+        listaSaludosU = ['que haces', 'que te dedicas']
+}
+
 /* ***************** Obtención Elementos DOM ***************** */
 
 let chatView = document.getElementById('chatView');
@@ -53,23 +73,23 @@ function processWord(text) {
         /* 2. Se le quitan las tildes */
         let rawWord = getWithoutTilde(text).toLowerCase();
         /* 3. Buscar palabra y reponder */
-        if(rawWord.includes('hola')) {
+        if(matchInclude(JSONuser.saludos, rawWord)) {
             showMessage(JSONreplies.saludos, 'bot');
-        } else if(rawWord.includes('te llamas') || rawWord.includes('tu nombre') || rawWord.includes('quien eres')){
+        } else if(matchInclude(JSONuser.nombre, rawWord)){
             showMessage(JSONreplies.nombre, 'bot', nombreBot);
-        } else if(rawWord.includes('quien te cre') || rawWord.includes('quien te hiz') || rawWord.includes('tu crea')) {
+        } else if(matchInclude(JSONuser.creador, rawWord)) {
             showMessage(JSONreplies.creador, 'bot');
-        } else if(rawWord.includes('adios') || rawWord.includes('chao') || rawWord.includes('nos vemos')  || rawWord.includes('me voy')) {
+        } else if(matchInclude(JSONuser.despedidas, rawWord)) {
             showMessage(JSONreplies.despedidas, 'bot');
-        } else if(rawWord.includes('un chiste') || rawWord.includes('una broma')) {
+        } else if(matchInclude(JSONuser.chistes, rawWord)) {
             showMessage(JSONreplies.chistes, 'bot');
         } else if(rawWord.includes('jaj')) {
             showMessage(JSONreplies.risas, 'bot');
-        } else if(rawWord.includes('que hace')) {
+        } else if(matchInclude(JSONuser.haciendo, rawWord)) {
             showMessage(JSONreplies.haciendo, 'bot');
-        } else if(rawWord.includes('bogota') || rawWord.includes('cali') || rawWord.includes('bucaramanga') || rawWord.includes('medellin')) {
+        } else if(matchInclude(JSONuser.ciudades, rawWord)) {
             showMessage(JSONreplies.ciudades, 'bot');
-        } else if(rawWord.includes('tont') || rawWord.includes('bob')){
+        } else if(matchInclude(JSONuser.insultos, rawWord)){
             showMessage(JSONreplies.insultos, 'bot');
         } else if(rawWord.includes('que mas')) {
             showMessage(JSONreplies.quemas, 'bot');
@@ -158,6 +178,7 @@ function resetInput() {
     inputWrite.focus();
 }
 
+/* Le quita las tildes a la palabras entrantes */
 function getWithoutTilde(text) {
     let word = '';
 
@@ -190,6 +211,21 @@ function getWithoutTilde(text) {
     }
 
     return word;
+}
+
+/* A esta función se le debe pasar como argumentos el JSONuser con clave */
+function matchInclude(elJSON, texto) {
+
+    let siono = false;
+    
+    for (let i = 0; i < elJSON.length; i++) {
+        if(texto.includes(elJSON[i])) {
+            console.log(elJSON[i]);
+            siono = true;
+        }
+    }
+
+    return siono;
 }
 
 /* ***************** Listeners ***************** */
