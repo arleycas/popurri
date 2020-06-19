@@ -45,7 +45,7 @@ let JSONuser = {
     'nombre': 
         listaNombresU = ['te llamas', 'tu nombre', 'quien eres'],
     'saludos':
-        listaSaludosU = ['hola', 'que mas'],
+        listaSaludosU = ['hola', 'que tal', 'hello'],
     'haciendo':
         listaSaludosU = ['que haces', 'que te dedicas']
 }
